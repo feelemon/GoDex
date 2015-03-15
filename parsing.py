@@ -1,11 +1,12 @@
 import sys
+import os
 from bs4 import BeautifulSoup
 reload(sys)
 sys.setdefaultencoding('utf8')
 
 
 def main():
-    file_site = open("index.html", "r").read()
+    file_site = open("index.html", "r")
     new_file = open("new_file.txt", "w")
     html_doc = file_site
     soup = BeautifulSoup(html_doc)
@@ -28,14 +29,14 @@ def function(soup, file):
             if item.encode('utf8'):
                 file.write(item.encode('utf8'))
 
-    def parsing_links(soup, file):
-        links = soup.find_all('a')
-        for link in links:
-            file.write(link.get('href') + "\n")
+    def _os_walk(path='./'):
+        for root, dirs, files in os.walk(".", topdown=True):
+            for name in files:
+                print(os.path.join(root, name))
 
     title_text(soup, file)
     clear_script(soup, file)
     all_text(soup, file)
-    parsing_links(soup, file)
+    _os_walk()
 
 main()
