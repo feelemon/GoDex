@@ -11,10 +11,12 @@ def main():
     html_doc = file_site
     soup = BeautifulSoup(html_doc)
 
-    function(soup, new_file)
+    functions(soup, new_file)
+    file_site.close()
+    new_file.close()
 
 
-def function(soup, file):
+def functions(soup, file):
 
     def title_text(soup, file):
         file.write(soup.title.string.encode('utf8'))
