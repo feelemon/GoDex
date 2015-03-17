@@ -17,14 +17,15 @@ def main():
 def functions(file1, file2):
 
     def convert(file1, file2):
+        symbol = [',' '.', '!', ')', '(', '?', ':', ';', '*', '\n', '/', '-', '+']
         lines = file1.readlines()
         for line in lines:
             list = string.split(line)
             for word in list:
-                if word == [] or word == "/":
-                    list.remove(word)
-                else:
-                    file2.write((word + '\n').encode('utf-8'))
+                for i in symbol:
+                    word = word.strip(i)
+                file2.write((word + '\n').encode('utf-8'))
+                print(word)
         return list
 
     convert(file1, file2)
