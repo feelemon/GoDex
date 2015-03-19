@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from parsing import *
 from words_list import *
@@ -10,10 +9,16 @@ db = connection.test_database
 
 
 def manage_file():
+    file = open('route.txt', 'w')
     file = open('route.txt', 'r')
+    # предварительно проверим наличие файлов:
+    os_walk()
     routes = file.readlines()
     for route in routes:
-        collection(route)
+        # проверим страничка ли это:
+        if route[len(route) - 5: len(route)].strip('\n') == 'html':
+            collection(route)
+    file.close()
 
 
 def collection(route):
@@ -43,15 +48,17 @@ def collection(route):
     text = open("new_file.txt", "r")
 
     collection = {}
-    collection['name'] = route.lstrip('.' '/').rstrip('\n')
-    collection['route'] = route.rstrip('\n')
-    collection['text'] = text.read()
-    collection['features'] = new.read()
-    print(collection, "\n")
+    collection['NAME'] = route.lstrip('.' '/').rstrip('\n')
+    collection['ROUTE'] = route.rstrip('\n')
+    collection['TEXT'] = text.read()
+    collection['FEATURES'] = new.read()
+
+    new.close()
+    text.close()
 
 # четвертый шаг - pymongo
     db.route.save(collection)
-    db.route.find({}).sort([('name', 1), ('route', -1)])
+    db.route.find({}).sort([('NAME', 1), ('ROUTE', -1)])
 
 if __name__ == '__main__':
     manage_file()

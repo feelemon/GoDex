@@ -20,7 +20,7 @@ def all_text(soup, file):
     return True
 
 
-def _os_walk(path='./'):
+def os_walk(path='./'):
     file = open("route.txt", "w")
     for root, dirs, files in os.walk(".", topdown=True):
         for name in files:
@@ -36,6 +36,6 @@ if __name__ == '__main__':
 
     clear_script(soup, new_file)
     all_text(soup, new_file)
-    _os_walk()
+    os_walk()
     file_site.close()
     new_file.close()
