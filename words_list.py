@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import re
 import sys
 import string
 reload(sys)
@@ -7,7 +6,6 @@ sys.setdefaultencoding('utf-8')
 
 
 def convert(file_read, file_write):
-    words = []
     symbol = [',' '.', '!', ')', '(', '?', ':', ';', '*', '\n', '/', '-', '+', ""]
     lines = file_read.readlines()
     for line in lines:
