@@ -15,15 +15,13 @@ def convert(file_read, file_write):
         for word in list:
             for s in symbol:
                 word = word.strip(s)
-            print(word)
             file_write.write((word + ' ').encode('utf-8'))
-            words.append(word.encode('utf-8'))
-    return list
+    return True
 
 if __name__ == '__main__':
 
     text = open("new_file.txt", "r")
-    new = open("new.txt", "w")
+    new = open("new.txt", 'w')
 
     convert(text, new)
     text.close()

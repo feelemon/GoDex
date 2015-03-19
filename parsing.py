@@ -9,6 +9,7 @@ sys.setdefaultencoding('utf8')
 def clear_script(soup, file):
     for i in soup.find_all('script'):
         i.replaceWith('')
+    return True
 
 
 def all_text(soup, file):
@@ -16,14 +17,15 @@ def all_text(soup, file):
     for item in text:
         if item.encode('utf8'):
             file.write(item.encode('utf8'))
+    return True
 
 
 def _os_walk(path='./'):
     file = open("route.txt", "w")
     for root, dirs, files in os.walk(".", topdown=True):
         for name in files:
-            print(os.path.join(root, name) + "\n")
             file.write(os.path.join(root, name) + "\n")
+    return True
 
 if __name__ == '__main__':
 
