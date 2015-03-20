@@ -15,8 +15,7 @@ def clear_script(soup, file):
 def all_text(soup, file):
     text = soup.get_text()
     for item in text:
-        if item.encode('utf8'):
-            file.write(item.encode('utf8'))
+        file.write(item.encode('utf8').replace('\n', ' '))
     return True
 
 
