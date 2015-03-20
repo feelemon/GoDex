@@ -2,7 +2,6 @@
 ========================================
 **Search Engine.**
 
-[Github](https://github.com/cs-hse-projects/GoDex)
 ### Описание проекта:
 
 [Wiki](http://wiki.cs.hse.ru/Поисковая_система_(проект))
