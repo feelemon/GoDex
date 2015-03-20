@@ -13,6 +13,8 @@
 
 [Github](https://github.com/cs-hse-projects/GoDex)
 
+GoDex - поисковая система для интернет ресурса, состоящего из http://megamozg.ru, http://geektimes.ru и http://habrahabr.ru .
+Будет предоставлена возможность поиска, как на одном источнике так и на всех сразу.
 
 
 Постановка задачи
